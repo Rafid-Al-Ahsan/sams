@@ -65,35 +65,81 @@ if(isset($_POST['login']))
 ?>
 
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  
+  <a class="navbar-brand" href="#">Student Attendance Management System</a>
+  
+</nav>
+
+<h4 style = "text-align:center;">Login into SAMS</h4>
+
+<section>
+             
+         <div class = "container">
+             <div class = "row">
+                  <div class = "col-lg-12 col-md-12">
+				  <form method="post" class="login-container">
+                     <div class="form-group">
+                        <label for="userid">UserID:</label>
+                           <input type="text" class="form-control" id="userid" placeholder="Enter user id" name="email">
+                     </div>
+                     <div class="form-group">
+                        <label for="password">Password:</label>
+                         <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+                     </div>
+
+					 <label>Login as:&nbsp&nbsp</label>
+
+					 
+					 <div class="form-group">
+                         <div class="form-check-inline">
+                           <label class="form-check-label" for="radio1">
+                             <input type="radio" class="form-check-input" id="radio1" name="optradio" value="student" checked>Student
+                           </label>
+                         </div>
+                         <div class="form-check-inline">
+                             <label class="form-check-label" for="radio2">
+                             <input type="radio" class="form-check-input" id="radio2" name="optradio" value="teacher">Teacher
+                             </label>
+                         </div>
+	                     <div class="form-check-inline">
+                            <label class="form-check-label" for="radio3">
+                            <input type="radio" class="form-check-input" id="radio3" name="optradio" value="admin">Admin
+                            </label>
+                         </div>
+                      </div>     
+                    
+
+
+                     
+                    <input type="submit" class="btn btn-success" value = "Login" name = "login" />
+                  </form>
+
+				  
+
+                  </div>
+             </div>
+         </div>	 
+
+</section>		 
+
+</body>
+
+</html>
 
 
 
-
-
-.header{
-    font-size: 30px;
-    text-align: center;
-    margin: 15px;
-}
-
-ul li{
-   margin: 5px 10px;
-}
-.active{
-    color: #ffffff;
-    background-color: #5cb85c;
-}
-
-.card-deck{
-    margin-top: 40px;
-}
-
-.card-text{
-    color: #ffffff;
-    text-align: left;
-    font-size: 22px;
-}
-
-.card-text.fa{
-    color: green;
-}
