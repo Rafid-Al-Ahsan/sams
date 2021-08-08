@@ -1,0 +1,42 @@
+.header{
+    font-size: 30px;
+    text-align: center;
+}
+
+ul li{
+   margin: 5px 10px;
+}
+.active{
+    color: #ffffff;
+    background-color: #5cb85c;
+}
+
+.card-deck{
+    margin-top: 40px;
+    width: 100%;
+}
+
+.card-text{
+    color: #ffffff;
+    text-align: left;
+    font-size: 22px;
+}
+
+
+
+
+
+.custom-container{
+    width: 50%;
+}
+
+.message{
+    padding: 10px;
+    font-size: 20px;
+    font-style: bold;
+    color: black;
+    text-align: center;
+  }
+
+
+
