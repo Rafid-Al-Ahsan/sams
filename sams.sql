@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 08, 2021 at 07:49 AM
+-- Generation Time: Aug 08, 2021 at 12:33 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.3.29
 
@@ -38,9 +38,9 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`userid`, `password`, `usertype`) VALUES
-('001', '1234', 'student'),
+('0001', '1234', 'student'),
 ('2001', '5678', 'teacher'),
-('admin', 'admin', 'admin');
+('3001', 'admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -61,9 +61,9 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`roll_no`, `name`, `age`, `gender`, `email`) VALUES
-('001', 'Sakimuzzaman', '16', 'Male', 'sk@gmail.com'),
-('002', 'Misbahur', '15', 'Male', 'misbahur@gmail.com'),
-('003', 'Rafid', '16', 'Male', 'rafid@gmail.com');
+('0001', 'Sakimuzzaman', '16', 'Male', 'sk@gmail.com'),
+('0002', 'Misbahur', '15', 'Male', 'misbahur@gmail.com'),
+('0003', 'Rafid', '16', 'Male', 'rafid@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -110,8 +110,8 @@ CREATE TABLE `teacher` (
 --
 
 INSERT INTO `teacher` (`id`, `name`, `age`, `gender`, `email`) VALUES
-('001', 'Kamal ', '40', 'Male', 'kamal@gmail.com'),
-('002', 'Akter', '37', 'Male', 'akter@yahooo.com');
+('2001', 'Kamal ', '40', 'Male', 'kamal@gmail.com'),
+('2002', 'Akter', '37', 'Male', 'akter@yahooo.com');
 
 --
 -- Indexes for dumped tables

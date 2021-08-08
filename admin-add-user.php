@@ -62,7 +62,7 @@
           <a class="nav-link" href="#">Faculty List</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Logout</a>
+          <a class="nav-link" href="login.php">Logout</a>
         </li>
       </ul>
     </nav>

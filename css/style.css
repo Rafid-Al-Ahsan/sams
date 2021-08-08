@@ -6,6 +6,7 @@
 ul li{
    margin: 5px 10px;
 }
+
 .active{
     color: #ffffff;
     background-color: #5cb85c;
@@ -22,6 +23,14 @@ ul li{
     font-size: 22px;
 }
 
+.login-container{
+    width: 60%;
+    margin: auto;
+}
+
+.custom-card{
+    margin-top: 20px;
+}
 
 
 

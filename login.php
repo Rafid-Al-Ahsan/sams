@@ -30,10 +30,10 @@ if(isset($_POST['login']))
 		
 		$row=mysqli_num_rows($result);
 
-		if($row>0 && $_POST["type"] == 'faculty'){
+		if($row>0 && $_POST["type"] == 'teacher'){
 			session_start();
 			$_SESSION['name']="oasis";
-			header('location: faculty.php');
+			header('location: teacher.php');
 		}
 
 		else if($row>0 &&  $_POST["type"] == 'student'){
@@ -92,42 +92,31 @@ if(isset($_POST['login']))
          <div class = "container">
              <div class = "row">
                   <div class = "col-lg-12 col-md-12">
+				           
+				            
+				        
 				  <form method="post" class="login-container">
-                     <div class="form-group">
-                        <label for="userid">UserID:</label>
-                           <input type="text" class="form-control" id="userid" placeholder="Enter user id" name="email">
-                     </div>
-                     <div class="form-group">
-                        <label for="password">Password:</label>
-                         <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
-                     </div>
+			           <div class="form-group">
+			              <label for="input1">UserID:</label>
+			              <input type="text" name="userid"  class="form-control" id="input1" placeholder="Enter user id" />
+			           </div>
 
-					 <label>Login as:&nbsp&nbsp</label>
-
-					 
-					 <div class="form-group">
-                         <div class="form-check-inline">
-                           <label class="form-check-label" for="radio1">
-                             <input type="radio" class="form-check-input" id="radio1" name="optradio" value="student" checked>Student
-                           </label>
-                         </div>
-                         <div class="form-check-inline">
-                             <label class="form-check-label" for="radio2">
-                             <input type="radio" class="form-check-input" id="radio2" name="optradio" value="teacher">Teacher
-                             </label>
-                         </div>
-	                     <div class="form-check-inline">
-                            <label class="form-check-label" for="radio3">
-                            <input type="radio" class="form-check-input" id="radio3" name="optradio" value="admin">Admin
-                            </label>
-                         </div>
-                      </div>     
-                    
+			           <div class="form-group">
+			              <label for="input1">Password:</label>		    
+			              <input type="password" name="password"  class="form-control" id="input1" placeholder="Enter password" />
+			           </div>
 
 
-                     
-                    <input type="submit" class="btn btn-success" value = "Login" name = "login" />
-                  </form>
+			           <div class="form-group" class="radio">
+			              <label for="input1" >Login As:</label>
+			              <label><input type="radio" name="type" id="optionsRadios1" value="student" checked> Student</label>
+			  	          <label><input type="radio" name="type" id="optionsRadios1" value="teacher"> Teacher</label>
+			              <label><input type="radio" name="type" id="optionsRadios1" value="admin"> Admin</label>
+			           </div>
+
+
+			<input type="submit" class="btn btn-success" value="Login" name="login" />
+		</form>
 
 				  
 
