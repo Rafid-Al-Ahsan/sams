@@ -104,17 +104,22 @@ $conn = mysqli_connect("localhost", "root","","sams");
         </thead>
      <?php
        
-       $i=0;
+       $i=-1;
+       $k=0;
        $radio = 0;
        $dt = date('Y-m-d');
        
        $all_query = mysqli_query($conn, "SELECT * from student ORDER BY roll_no asc");
        
        while ($data = mysqli_fetch_array($all_query)) {
-         $i++;
+         $i=$i+2;
+         $k=$k+2;
 
-         $studentData[$i][0]= $data['roll_no'];
-         $studentData[$i][1]= $data['name'];
+         /*$studentData[$i][0]= $data['roll_no'];
+         $studentData[$i][1]= $data['name'];*/
+
+         $studentData[$i]= $data['roll_no'];
+         $studentData[$k]= $data['name'];
          /*
          $studentData[$i][2]= $data['age'];
          $studentData[$i][3]= $data['gender'];
@@ -123,8 +128,8 @@ $conn = mysqli_connect("localhost", "root","","sams");
        ?>
   
        <tr>
-         <td><?php echo $studentData[$i][0]; ?></td>
-         <td><?php echo $studentData[$i][1]; ?></td>
+         <td><?php echo $studentData[$i]; ?></td>
+         <td><?php echo $studentData[$k]; ?></td>
          <td><?php echo $teacherData[4]; ?></td>
          <td><?php echo $teacherData[1]; ?></td>
          <td><?php echo $dt; ?></td>
@@ -164,18 +169,26 @@ $conn = mysqli_connect("localhost", "root","","sams");
 <?php
 
       if(isset($_POST['att'])){
+           $x=1;
+           $y=2;
         foreach ($_POST['status'] as $row => $value){
             $rock = mysqli_real_escape_string($conn, $value);
-            $result = mysqli_query($conn,"insert report(status) values('".$rock."')");
+            $result = mysqli_query($conn,"insert report(roll_no,name,subject,teacher,date,status) values('$studentData[$x]','$studentData[$y]','$teacherData[4]','$teacherData[1]','$dt','".$rock."')");
+            $x=$x+2;
+            $y=$y+2;
          }
-      } 
+      
           
 
           /*foreach($studentData as $row => $value ){
              $rock = mysqli_real_escape_string($conn,$value[0]);
              $rock2 = mysqli_real_escape_string($conn,$value[1]);
-             $result = mysqli_query($conn,"insert report4(roll_no,name,subject,teacher,date) values('".$rock."','".$rock2."','$teacherData[4]','$teacherData[1]','$dt')");
+             $result = mysqli_query($conn,"insert report(roll_no,name,subject,teacher,date) values('".$rock."','".$rock2."','$teacherData[4]','$teacherData[1]','$dt')");
           }*/
+
+         
+
+      }
       
 
      
