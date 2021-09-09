@@ -50,10 +50,16 @@
           <a class="nav-link active" href="create-user.php">Create User</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Students List</a>
+          <a class="nav-link" href="student-list.php">Students List</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Faculty List</a>
+           <a class="nav-link" href="teacher-list.php">Teachers List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="user-list.php">User List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="report.php">Report</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="login.php">Logout</a>

@@ -7,8 +7,7 @@ $conn = mysqli_connect("localhost", "root","","sams");
         exit();
     }
     
-    $userid = $_GET['userid'];
-     
+    $userid = $_GET['userid'];   
 
 ?>
 
@@ -38,24 +37,11 @@ $conn = mysqli_connect("localhost", "root","","sams");
           <a class="nav-link active" href="#">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="admin-add-user.php">Add Student/Faculty</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="create-user.php">Create User</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="student-list.php">Students List</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="teacher-list.php">Teachers List</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="login.php">Logout</a>
         </li>
       </ul>
     </nav>
 
-  <?php echo "Hello $userid"; ?>
 
   <?php
        
@@ -66,7 +52,6 @@ $conn = mysqli_connect("localhost", "root","","sams");
        
        while ($data = mysqli_fetch_array($all_query)) {
          $j++;
-         echo $data['subject'];
 
          $teacherData[0]= $data['id'];
          $teacherData[1]= $data['name'];
@@ -76,14 +61,12 @@ $conn = mysqli_connect("localhost", "root","","sams");
          $teacherData[5]= $data['email'];
          
        }
-
-       echo $teacherData[0];
        
 ?>
 
 
-<h2 style="text-align:center; margin: 15px 0;">All Students</h2>
-<h3>Attendance of <?php echo date('d-m-Y'); ?></h3>
+<h3 style="text-align:center; margin: 15px 0;">Welcome, <?php echo $teacherData[1]?></h3>
+<h5 style="text-align:center; margin: 20px 0;">Please provide the Attendance of <?php echo date('Y-m-d'); ?></h5>
 
 <div class="container">
 
@@ -100,6 +83,7 @@ $conn = mysqli_connect("localhost", "root","","sams");
           <th scope="col">Subject</th>
           <th scope="col">Teacher</th>
           <th scope="col">Date</th>
+          <th scope="col">Status</th>
         </tr>
         </thead>
      <?php
@@ -115,15 +99,8 @@ $conn = mysqli_connect("localhost", "root","","sams");
          $i=$i+2;
          $k=$k+2;
 
-         /*$studentData[$i][0]= $data['roll_no'];
-         $studentData[$i][1]= $data['name'];*/
-
          $studentData[$i]= $data['roll_no'];
-         $studentData[$k]= $data['name'];
-         /*
-         $studentData[$i][2]= $data['age'];
-         $studentData[$i][3]= $data['gender'];
-         $studentData[$i][4]= $data['email'];*/
+         $studentData[$k]= $data['name']; 
            
        ?>
   
@@ -167,7 +144,7 @@ $conn = mysqli_connect("localhost", "root","","sams");
 </div>
   
 <?php
-
+    try{
       if(isset($_POST['att'])){
            $x=1;
            $y=2;
@@ -177,24 +154,21 @@ $conn = mysqli_connect("localhost", "root","","sams");
             $x=$x+2;
             $y=$y+2;
          }
-      
-          
-
-          /*foreach($studentData as $row => $value ){
-             $rock = mysqli_real_escape_string($conn,$value[0]);
-             $rock2 = mysqli_real_escape_string($conn,$value[1]);
-             $result = mysqli_query($conn,"insert report(roll_no,name,subject,teacher,date) values('".$rock."','".$rock2."','$teacherData[4]','$teacherData[1]','$dt')");
-          }*/
-
-         
+         $success_msg = "Attendence Recorded";
 
       }
-      
+    } 
 
-     
+    catch(Execption $e){
+      $error_msg =$e->getMessage();
+    }
+        
    
 ?>
-    
+   
+<div class="message">
+          <?php if(isset($success_msg)) echo $success_msg; if(isset($error_msg)) echo $error_msg; ?>
+</div>   
 
 </body>
 </html>   

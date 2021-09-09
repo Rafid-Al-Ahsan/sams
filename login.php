@@ -27,19 +27,29 @@ if(isset($_POST['login']))
 		$row=0;
 		$result=mysqli_query($conn, "select * from login where userid='$_POST[userid]' and password='$_POST[password]' and usertype='$_POST[type]'");		
 
-		
+		//storing the results in an  array
 		$row=mysqli_num_rows($result);
 
+		//checking login information
 		if($row>0 && $_POST["type"] == 'teacher'){
 			session_start();
 			$_SESSION['name']="oasis";
-			header('location: teacher.php');
+			//for passing sessions to the redirected page
+			$userid = $_POST['userid'];
+			$url = "teacher.php?userid=" . $userid;
+			header('location:' . $url);
+			exit();
+		
 		}
 
 		else if($row>0 &&  $_POST["type"] == 'student'){
 			session_start();
 			$_SESSION['name']="oasis";
-			header('location: student.php');
+            //for passing sessions to the redirected page
+			$userid = $_POST['userid'];
+			$url = "student.php?userid=" . $userid;
+			header('location:' . $url);
+			exit();
 		}
 
 		else if($row>0 && $_POST["type"] == 'admin'){
@@ -55,7 +65,7 @@ if(isset($_POST['login']))
 		}
 	}
 
-	//end of try block
+	//end of try block and show error msg
 	catch(Exception $e){
 		$error_msg=$e->getMessage();
 	}
@@ -79,14 +89,20 @@ if(isset($_POST['login']))
 
 <body>
 
+<!-- Header and navbar starts here-->
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   
   <a class="navbar-brand" href="#">Student Attendance Management System</a>
   
 </nav>
 
+<div class="message">
+          <?php if(isset($success_msg)) echo $success_msg; if(isset($error_msg)) echo $error_msg; ?>
+</div>   
+
 <h4 style = "text-align:center;">Login into SAMS</h4>
 
+<!-- Login in form section starts here-->
 <section>
              
          <div class = "container">

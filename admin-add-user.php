@@ -14,7 +14,7 @@
         }
 
         if(isset($_POST['tcr'])){
-            $result = mysqli_query($conn,"insert teacher(id,name,age,gender,email) values('$_POST[id]','$_POST[name]','$_POST[age]','$_POST[gender]','$_POST[email]')");   
+            $result = mysqli_query($conn,"insert teacher(id,name,age,gender,subject,email) values('$_POST[id]','$_POST[name]','$_POST[age]','$_POST[gender]','$_POST[subject]','$_POST[email]')");   
             $success_msg = "Teacher added successfully.";
         }
 
@@ -40,11 +40,12 @@
 
 <body>
 
+<!-- navigation bar starts here -->
 <h3 class="header">Student Attendance Management System</h3>
  
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 
-      <!-- Links -->
+      
        <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="admin.php">Dashboard</a>
@@ -53,13 +54,19 @@
           <a class="nav-link active" href="admin-add-user.php">Add Student/Faculty</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Create User</a>
+          <a class="nav-link" href="create-user.php">Create User</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Students List</a>
+          <a class="nav-link" href="student-list.php">Students List</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Faculty List</a>
+           <a class="nav-link" href="teacher-list.php">Teachers List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="user-list.php">User List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="report.php">Report</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="login.php">Logout</a>
@@ -67,6 +74,7 @@
       </ul>
     </nav>
 
+    <!-- add student/teacher form starts here-->
     <section>
 
        <div class="message">
@@ -133,6 +141,11 @@
                          <div class="form-group">
                            <label for="gender">Gender:</label>
                            <input type="text" class="form-control" id="gender" placeholder="Enter gender" name="gender">
+                         </div>
+
+                         <div class="form-group">
+                           <label for="subject">Subject:</label>
+                           <input type="text" class="form-control" id="subject" placeholder="Enter subject" name="subject">
                          </div>
 
                          <div class="form-group">

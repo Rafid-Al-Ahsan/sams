@@ -1,15 +1,18 @@
 <?php
 
+//connectiion to database
 $conn = mysqli_connect("localhost", "root","","sams");
 
+//firing the sql query
 $result1 = mysqli_query($conn,"SELECT COUNT(*) FROM student");
 $result2 = mysqli_query($conn,"SELECT COUNT(*) FROM teacher");
-$result3 = mysqli_query($conn,"SELECT COUNT(*) FROM subject");
+//$result3 = mysqli_query($conn,"SELECT COUNT(*) FROM subject");
 $result4 = mysqli_query($conn,"SELECT COUNT(*) FROM login");
 
+//storing the results
 $output1 = mysqli_fetch_row($result1);
 $output2 = mysqli_fetch_row($result2);
-$output3 = mysqli_fetch_row($result3);
+//$output3 = mysqli_fetch_row($result3);
 $output4 = mysqli_fetch_row($result4);
 
 ?>
@@ -31,9 +34,10 @@ $output4 = mysqli_fetch_row($result4);
 <body>
 <h3 class="header">Student Attendance Management System</h3>
  
+    <!-- navigation bar starts here -->
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 
-      <!-- Links -->
+      
        <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link active" href="admin.php">Dashboard</a>
@@ -42,13 +46,19 @@ $output4 = mysqli_fetch_row($result4);
           <a class="nav-link" href="admin-add-user.php">Add Student/Faculty</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Create User</a>
+          <a class="nav-link" href="create-user.php">Create User</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Students List</a>
+          <a class="nav-link" href="student-list.php">Students List</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Faculty List</a>
+           <a class="nav-link" href="teacher-list.php">Teachers List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="user-list.php">User List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="report.php">Report</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="login.php">Logout</a>
@@ -56,7 +66,7 @@ $output4 = mysqli_fetch_row($result4);
       </ul>
     </nav>
 
-
+<!-- Card section starts here -->
 <div class="container">
   <div class="card-deck">
     <div class="card bg-primary">
@@ -71,12 +81,12 @@ $output4 = mysqli_fetch_row($result4);
         <p class="card-text">Total Teachers&nbsp&nbsp<i class="fa fa-user"></i></p>
       </div>
     </div>
-    <div class="card bg-success">
+    <!--<div class="card bg-success">
       <div class="card-body text-center">
         <p class="card-text" style="font-size:30px;"><?php echo $output3[0];?></p>
         <p class="card-text">Total Subjects&nbsp&nbsp<i class="fa fa-file-text"></i></p>
       </div>
-    </div>
+    </div>-->
     <div class="card bg-danger">
       <div class="card-body text-center">
          <p class="card-text" style="font-size:30px;"><?php echo $output4[0];?></p>
