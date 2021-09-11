@@ -6,13 +6,13 @@ $conn = mysqli_connect("localhost", "root","","sams");
 //firing the sql query
 $result1 = mysqli_query($conn,"SELECT COUNT(*) FROM student");
 $result2 = mysqli_query($conn,"SELECT COUNT(*) FROM teacher");
-//$result3 = mysqli_query($conn,"SELECT COUNT(*) FROM subject");
+$result3 = mysqli_query($conn,"SELECT COUNT(*)FROM login WHERE usertype='admin'");
 $result4 = mysqli_query($conn,"SELECT COUNT(*) FROM login");
 
 //storing the results
 $output1 = mysqli_fetch_row($result1);
 $output2 = mysqli_fetch_row($result2);
-//$output3 = mysqli_fetch_row($result3);
+$output3 = mysqli_fetch_row($result3);
 $output4 = mysqli_fetch_row($result4);
 
 ?>
@@ -81,12 +81,12 @@ $output4 = mysqli_fetch_row($result4);
         <p class="card-text">Total Teachers&nbsp&nbsp<i class="fa fa-user"></i></p>
       </div>
     </div>
-    <!--<div class="card bg-success">
+    <div class="card bg-success">
       <div class="card-body text-center">
         <p class="card-text" style="font-size:30px;"><?php echo $output3[0];?></p>
-        <p class="card-text">Total Subjects&nbsp&nbsp<i class="fa fa-file-text"></i></p>
+        <p class="card-text">Admins&nbsp&nbsp<i class="fa fa-file-text"></i></p>
       </div>
-    </div>-->
+    </div>
     <div class="card bg-danger">
       <div class="card-body text-center">
          <p class="card-text" style="font-size:30px;"><?php echo $output4[0];?></p>
