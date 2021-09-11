@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 09, 2021 at 10:50 AM
+-- Generation Time: Sep 11, 2021 at 09:28 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.3.29
 
@@ -38,9 +38,14 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`userid`, `password`, `usertype`) VALUES
-('0001', '1234', 'student'),
+('0001', 'student', 'student'),
+('0002', 'student', 'student'),
+('0003', 'student', 'student'),
+('0004', 'student', 'student'),
 ('2001', 'teacher', 'teacher'),
 ('2002', 'teacher', 'teacher'),
+('2003', 'teacher', 'teacher'),
+('2004', 'teacher', 'teacher'),
 ('3001', 'admin', 'admin');
 
 -- --------------------------------------------------------
@@ -63,23 +68,14 @@ CREATE TABLE `report` (
 --
 
 INSERT INTO `report` (`roll_no`, `name`, `subject`, `teacher`, `date`, `status`) VALUES
-('0001', '0002', 'Maths', 'Kamal ', '2021-09-06', 'Absent'),
-('0002', '0004', 'Maths', 'Kamal ', '2021-09-06', 'Absent'),
-('0003', 'Rafid', 'Maths', 'Kamal ', '2021-09-06', 'Absent'),
-('0004', 'Soumit', 'Maths', 'Kamal ', '2021-09-06', 'Absent'),
-('0001', 'Sakimuzzaman', 'Maths', 'Kamal ', '2021-09-06', 'Absent'),
-('0002', 'Misbahur', 'Maths', 'Kamal ', '2021-09-06', 'Absent'),
-('0003', 'Rafid', 'Maths', 'Kamal ', '2021-09-06', 'Present'),
-('0004', 'Soumit', 'Maths', 'Kamal ', '2021-09-06', 'Present'),
-('0001', 'Sakimuzzaman', 'English', 'Akter', '2021-09-06', 'Present'),
-('0002', 'Misbahur', 'English', 'Akter', '2021-09-06', 'Present'),
-('0003', 'Rafid', 'English', 'Akter', '2021-09-06', 'Present'),
-('0004', 'Soumit', 'English', 'Akter', '2021-09-06', 'Absent'),
-('0001', 'Sakimuzzaman', 'Maths', 'Kamal ', '2021-09-06', 'Absent'),
-('0002', 'Misbahur', 'Maths', 'Kamal ', '2021-09-06', 'Absent'),
-('0003', 'Rafid', 'Maths', 'Kamal ', '2021-09-06', 'Absent'),
-('0004', 'Soumit', 'Maths', 'Kamal ', '2021-09-06', 'Absent'),
-('005', 'boss', 'Maths', 'Kamal ', '2021-09-06', 'Present');
+('0001', 'Sakimuzzaman', 'Geography', 'Rakib', '2021-09-11', 'Absent'),
+('0002', 'Misbahur', 'Geography', 'Rakib', '2021-09-11', 'Present'),
+('0003', 'Rafid', 'Geography', 'Rakib', '2021-09-11', 'Present'),
+('0004', 'Soumit', 'Geography', 'Rakib', '2021-09-11', 'Present'),
+('0001', 'Sakimuzzaman', 'History', 'Jasmin', '2021-09-11', 'Absent'),
+('0002', 'Misbahur', 'History', 'Jasmin', '2021-09-11', 'Present'),
+('0003', 'Rafid', 'History', 'Jasmin', '2021-09-11', 'Present'),
+('0004', 'Soumit', 'History', 'Jasmin', '2021-09-11', 'Present');
 
 -- --------------------------------------------------------
 
@@ -108,32 +104,6 @@ INSERT INTO `student` (`roll_no`, `name`, `age`, `gender`, `email`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `subject`
---
-
-CREATE TABLE `subject` (
-  `si` varchar(30) NOT NULL,
-  `name` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `subject`
---
-
-INSERT INTO `subject` (`si`, `name`) VALUES
-('01', 'English'),
-('02', 'Bangla'),
-('03', 'Maths'),
-('04', 'Science'),
-('05', 'History'),
-('06', 'Geography'),
-('07', 'Music'),
-('08', 'Arts'),
-('09', 'Sports');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `teacher`
 --
 
@@ -153,7 +123,8 @@ CREATE TABLE `teacher` (
 INSERT INTO `teacher` (`id`, `name`, `age`, `gender`, `subject`, `email`) VALUES
 ('2001', 'Kamal ', '40', 'Male', 'Maths', 'kamal@gmail.com'),
 ('2002', 'Akter', '37', 'Male', 'English', 'akter@yahooo.com'),
-('2003', 'Jasmin', '35', 'Female', 'Bangla', 'jasmin@gmail.com');
+('2003', 'Jasmin', '35', 'Female', 'History', 'jasmin@gmail.com'),
+('2004', 'Rakib', '47', 'Male', 'Geography', 'rakib@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -170,12 +141,6 @@ ALTER TABLE `login`
 --
 ALTER TABLE `student`
   ADD PRIMARY KEY (`roll_no`);
-
---
--- Indexes for table `subject`
---
-ALTER TABLE `subject`
-  ADD PRIMARY KEY (`si`);
 
 --
 -- Indexes for table `teacher`
